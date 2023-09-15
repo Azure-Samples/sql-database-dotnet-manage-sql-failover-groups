@@ -82,18 +82,6 @@ namespace ManageSqlFailoverGroups
                 var sqlSecondaryServer = (await resourceGroup.GetSqlServers().CreateOrUpdateAsync(WaitUntil.Completed, sqlSecondaryServerName, sqlSecondaryServerData)).Value;
                 Utilities.Log($"Created secondary SQL Server with name: {sqlSecondaryServer.Data.Name} ");
 
-                //Utilities.Log("Creating a database in secondary SQL Server...");
-                //string sqlSecondaryDBName = Utilities.CreateRandomName("SQLSecondaryDB");
-                //SqlDatabaseData sqlSecondaryDBData = new SqlDatabaseData(AzureLocation.EastUS2)
-                //{
-                //    Sku = new SqlSku("S0")
-                //    {
-                //        Tier = "Standard"
-                //    }
-                //};
-                //SqlDatabaseResource sqlSecondaryDB = (await sqlSecondaryServer.GetSqlDatabases().CreateOrUpdateAsync(WaitUntil.Completed, sqlSecondaryDBName, sqlSecondaryDBData)).Value;
-                //Utilities.Log($"Created a database in secondary SQL Server with name: {sqlSecondaryDB.Data.Name} ");
-
                 // ============================================================
                 // Create a Failover Group from the primary SQL server to the secondary SQL server.
                 Utilities.Log("Creating a Failover Group from the primary SQL server to the secondary SQL server");
