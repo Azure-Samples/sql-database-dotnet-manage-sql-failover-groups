@@ -158,7 +158,7 @@ namespace ManageSqlFailoverGroups
                 Utilities.Log("Getting the database from the secondary server...");
                 Thread.Sleep(TimeSpan.FromMinutes(3));
 
-                sqlPrimaryDB = (await sqlSecondaryServer.GetSqlDatabaseAsync(sqlPrimaryDB.Data.Name));
+                sqlPrimaryDB = await sqlSecondaryServer.GetSqlDatabaseAsync(sqlPrimaryDB.Data.Name);
 
                 Utilities.Log($"Get the database from the secondary server with databasename: {sqlPrimaryDB.Data.Name}");
 
